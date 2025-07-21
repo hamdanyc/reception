@@ -19,7 +19,7 @@ df = pd.DataFrame(data)
 st.title("Carian Meja Tetamu")
 
 # Select column to search
-column = st.selectbox("Carian Mengikut", df.columns)
+column = st.selectbox("Saring Mengikut", df.columns)
 
 # Input search query
 query = st.text_input("Carian")
