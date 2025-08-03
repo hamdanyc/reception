@@ -12,7 +12,9 @@ def assign_guests_to_tables(csv_file):
         reader = csv.DictReader(csvfile)
         for row in reader:
             name = row['name']
-            family_id = int(row['family_id'])
+            
+            if row['family_id'].isdigit():
+                family_id = int(row['family_id'])
 
             if family_id not in family_members:
                 family_members[family_id] = []
