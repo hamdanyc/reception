@@ -1,0 +1,30 @@
+---
+title: "Majlis Resepsi Dr. Afif|Yiana, WTC 27 Sep 2025"
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_notebook: default
+---
+
+```{r init, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(dplyr)
+library(knitr)
+library(readr)
+library(kableExtra)
+
+guest_seat <- read_csv("guest_seat.csv")
+df <- guest_seat
+```
+
+## Senarai Tetamu
+
+```{r guestbytable}
+guest_seat %>% 
+  select(table,name,seat) %>% 
+  group_by(table) %>% 
+  kbl(booktabs = T, longtable = TRUE, centering = FALSE, col.names = c("Meja", "Nama","#")) %>%
+  kable_styling(repeat_header_continued = TRUE, repeat_header_text = "\\textit{(samb)}") %>% 
+    collapse_rows(row_group_label_position = "first",
+                latex_hline = "major")
