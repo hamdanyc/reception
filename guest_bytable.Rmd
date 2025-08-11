@@ -15,7 +15,6 @@ library(readr)
 library(kableExtra)
 
 guest_seat <- read_csv("guest_seat.csv")
-df <- guest_seat
 ```
 
 ## Senarai Tetamu
@@ -25,6 +24,5 @@ guest_seat %>%
   select(table,name,seat) %>% 
   group_by(table) %>% 
   kbl(booktabs = T, longtable = TRUE, centering = FALSE, col.names = c("Meja", "Nama","#")) %>%
-  kable_styling(repeat_header_continued = TRUE, repeat_header_text = "\\textit{(samb)}") %>% 
     collapse_rows(row_group_label_position = "first",
                 latex_hline = "major")
