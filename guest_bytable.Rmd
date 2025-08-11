@@ -14,7 +14,7 @@ library(knitr)
 library(readr)
 library(kableExtra)
 
-guest_seat <- read_csv("guest_seat.csv")
+guest_seat <- read_csv("guest_seat.csv",show_col_types = FALSE)
 ```
 
 ## Senarai Tetamu
@@ -22,7 +22,8 @@ guest_seat <- read_csv("guest_seat.csv")
 ```{r guestbytable}
 guest_seat %>% 
   select(table,name,seat) %>% 
-  group_by(table) %>% 
+  group_by(table)  %>% 
   kbl(booktabs = T, longtable = TRUE, centering = FALSE, col.names = c("Meja", "Nama","#")) %>%
     collapse_rows(row_group_label_position = "first",
                 latex_hline = "major")
+```
