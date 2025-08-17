@@ -16,7 +16,8 @@ csv_file = 'guest_seat.csv'
 data = load_data(csv_file)
 df = pd.DataFrame(data)
 
-st.title("Majlis Resepsi Dr. Arif|Yana, WTC 27 Sep 2025")
+st.title("Majlis Resepsi Dr. Arif|Yana")
+st.subheader("WTC 27 Sep 2025")
 
 # Select column to search
 column = st.selectbox("Saring Mengikut", df.columns)
