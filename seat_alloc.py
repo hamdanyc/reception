@@ -13,11 +13,7 @@ from io import StringIO
 GOOGLE_SHEETS_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vStwrKnn87_h10mGigKhkuomud58mUJuMlYwPB_KzkvKnacNv0K2JeYvGTZANZNDYnQIRuuh20VOjGh/pub?output=csv"
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python seat_alloc.py <output_csv>")
-        sys.exit(1)
-
-    output_file = sys.argv[1]
+    output_file = "guest_seat.csv"
 
     # Fetch CSV from Google Sheets
     response = requests.get(GOOGLE_SHEETS_URL)
@@ -49,13 +45,13 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.upper()} ({phone})",
+                            'name': f"{guest_name.title()} (0{phone})",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
                     else:
                         writer.writerow({
-                            'name': f"AHLI KELUARGA #{i} {guest_name.upper()}",
+                            'name': f"Ahli Keluarga #{i} {guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
@@ -63,11 +59,11 @@ def main():
                 table_guest_count += number_guest
 
             elif table_guest_count < 10:
-                # Fill remaining seats with SIMPANAN and start new table
+                # Fill remaining seats with Simpanan and start new table
                 remaining = 10 - table_guest_count
                 for i in range(1, remaining + 1):
                     writer.writerow({
-                        'name': f"SIMPANAN #{table_number}:{seat_number}",
+                        'name': f"Simpanan #{table_number}:{seat_number}",
                         'seat': str(seat_number),
                         'table_number': str(table_number)
                     })
@@ -79,13 +75,13 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.upper()} ({phone})",
+                            'name': f"{guest_name.title()} (0{phone})",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
                     else:
                         writer.writerow({
-                            'name': f"AHLI KELUARGA #{i} {guest_name.upper()}",
+                            'name': f"Ahli Keluarga #{i} {guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
@@ -99,13 +95,13 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.upper()} ({phone})",
+                            'name': f"{guest_name.title()} ({phone})",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
                     else:
                         writer.writerow({
-                            'name': f"AHLI KELUARGA #{i} {guest_name.upper()}",
+                            'name': f"Ahli Keluarga #{i} {guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
