@@ -16,7 +16,7 @@ csv_file = 'guest_seat.csv'
 data = load_data(csv_file)
 df = pd.DataFrame(data)
 
-st.title("RSVP Dr Arif ❤️ Yana")
+st.title("Majlis Resepsi Dr Arif ❤️ Yana")
 st.subheader("WTC 27 Sep 2025")
 
 # Select column to search
