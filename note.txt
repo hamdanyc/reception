@@ -1,2 +1,2 @@
 awk -F, '{print $1",0"$2","$4}' rsvp.csv | sort -nk3 -t, > rsvp_sorted.csv
-awk -f 'seating_plan.awk' rsvp_sorted.csv > guest_seat.csv
+awk -f 'seat_alloc.awk' rsvp.csv > guest_seat.csv
