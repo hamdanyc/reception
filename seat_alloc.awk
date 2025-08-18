@@ -8,6 +8,11 @@ BEGIN {
     print "name,seat,table_number"
 }
 
+function toTitle(str) {
+    #gsub(/(^|[^a-zA-Z])([a-z])/g, function (match, p1, p2) { return toupper(p2); }, str)
+    #return str
+}
+
 {
     guest_name = $1
     phone = "0"$2
@@ -28,7 +33,7 @@ BEGIN {
         # Assign as reserve with count
         m = 10 - table_count[table_number]
         for (n = 1; n <= m; n++) {
-            print "SIMPANAN " "#"table_number":"seat_number "," seat_number "," table_number
+            print "SIMPANAN " "#" table_number ":" seat_number "," seat_number "," table_number
             seat_number++
         }
         table_number++
