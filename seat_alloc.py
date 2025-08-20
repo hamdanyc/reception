@@ -24,7 +24,7 @@ def main():
     # Convert response content to file-like object
     csv_data = StringIO(response.text)
 
-    table_number = 1
+    table_number = 13
     seat_number = 1
     table_guest_count = 0
 
@@ -35,7 +35,7 @@ def main():
         reader = csv.DictReader(csv_data)
         for row in reader:
             guest_name = row['Nama']
-            phone = row['Telefon']
+            # phone = row['Telefon']
             value = row['Jumlah Kehadiran'].strip()
             number_guest = int(value) if value else 1
 
@@ -45,7 +45,7 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.title()} (0{phone})",
+                            'name': f"{guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
@@ -75,7 +75,7 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.title()} (0{phone})",
+                            'name': f"{guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
@@ -95,7 +95,7 @@ def main():
                 for i in range(1, number_guest + 1):
                     if i == 1:
                         writer.writerow({
-                            'name': f"{guest_name.title()} ({phone})",
+                            'name': f"{guest_name.title()}",
                             'seat': str(seat_number),
                             'table_number': str(table_number)
                         })
@@ -108,7 +108,7 @@ def main():
                     seat_number += 1
 
         # Print total tables
-        print(f"Total tables: {table_number}")
+        print(f"Total tables: {table_number} Guests: {seat_number}")
 
 if __name__ == "__main__":
     main()
