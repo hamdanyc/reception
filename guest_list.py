@@ -8,7 +8,7 @@ def generate_guest_list():
     # Read CSV file
     with open('guest_seat.csv', 'r', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
-        next(reader)  # Skip header row
+        # next(reader)  # Skip header row
         for row in reader:
             if row['name'].startswith('Ahli Keluarga'):
                 continue
@@ -29,13 +29,13 @@ def generate_guest_list():
     # Add timestamp
     c.setFont("Helvetica", 10)
     timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-    c.drawString(150, 735, f"Generated on: {timestamp}")
+    c.drawString(150, 735, f"Berakhir pada: {timestamp}")
     
     # Add table headers
     c.setFont("Helvetica-Bold", 12)
-    c.drawString(50, 700, "Name")
-    c.drawString(300, 700, "Table")
-    c.drawString(350, 700, "Seat")
+    c.drawString(50, 700, "Tetamu")
+    c.drawString(300, 700, "Meja")
+    c.drawString(350, 700, "Siri")
     
     # Add guest data
     c.setFont("Helvetica", 10)

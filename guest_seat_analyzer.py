@@ -1,4 +1,5 @@
 import pandas as pd
+import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
@@ -43,7 +44,10 @@ elements = []
 styles = getSampleStyleSheet()
 title_style = styles['Heading1']
 title = Paragraph("Tables Summary", title_style)
+timestamp = Paragraph(f"Berakhir pada: {datetime.datetime.now().strftime('%d-%m-%Y %H:%M')}", styles['Normal'])
 elements.append(title)
+elements.append(Spacer(1, 12))
+elements.append(timestamp)
 elements.append(Spacer(1, 24))
 
 # Convert DataFrame to list of lists for table
