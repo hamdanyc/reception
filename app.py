@@ -20,7 +20,7 @@ df = pd.DataFrame(data)
 st.title("Majlis Resepsi Dr Arif ❤️ Yana")
 
 # Countdown to event
-event_date = datetime(2025, 9, 27)
+event_date = datetime(2025, 9, 27, 20,00,00)
 now = datetime.now()
 delta = event_date - now
 
